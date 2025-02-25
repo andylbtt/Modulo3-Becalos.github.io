@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caja de Comentarios</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f6f0;
+            text-align: center;
+            margin: 20px;
+        }
+        .logo-container {
+            margin-bottom: 20px;
+        }
+        .logo-container img {
+            width: 150px; /* Ajusta el tamaño del logo */
+            height: auto;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #fce4ec;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1c4e9;
+            border-radius: 5px;
+            font-size: 14px;
+            background: #f3e5f5;
+            resize: none;
+        }
+        button {
+            background: #b39ddb; /*Color pastelito*/
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #9575cd;
+        }
+        .comment-box {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .comment {
+            background: #e1bee7;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        .delete-btn {
+            background: #ef5350;
+            color: white;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+        .delete-btn:hover {
+            background: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Logo fijo en la parte superior de DEV.F. -->
+    <div class="logo-container">
+        <img src="https://eu01.edcwb.com/buscador/img/centros/logogrande/56522-28fb59e3a49e422295e731fb7ad3c223.jpg" alt="Logo de la empresa">
+    </div>
+
+    <div class="container">
+        <h2>💬 Caja de Comentarios</h2>
+        <textarea id="commentBox" rows="3" placeholder="Escribe tu comentario al sensei aquí..."></textarea>
+        <button onclick="addComment()">Agregar Comentario</button>
+
+        <div id="commentsContainer" class="comment-box"></div>
+    </div>
+
+    <script>
+        function addComment() {
+            // Obtenemos el valor del comentario
+            let commentText = document.getElementById("commentBox").value;
+
+            if (commentText.trim() === "") {
+                alert("El comentario no puede estar vacío.");
+                return;
+            }
+
+            // Obtenemos la fecha y hora actual
+            let date = new Date();
+            let formattedDate = date.toLocaleString();
+
+            // Creamos el elemento del comentario
+            let commentDiv = document.createElement("div");
+            commentDiv.classList.add("comment");
+            commentDiv.innerHTML = `
+                <p><strong>Usuario:</strong> ${commentText}</p>
+                <small>${formattedDate}</small>
+                <button class="delete-btn" onclick="deleteComment(this)">Eliminar</button>
+            `;
+
+            // Agregamos el comentario al contenedor
+            document.getElementById("commentsContainer").prepend(commentDiv);
+
+            // Limpiamos el área de texto
+            document.getElementById("commentBox").value = "";
+        }
+
+        function deleteComment(button) {
+            // Eliminamos el comentario seleccionado
+            button.parentElement.remove();
+        }
+    </script>
+
+</body>
+</html>
