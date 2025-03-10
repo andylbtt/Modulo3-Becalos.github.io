@@ -1,0 +1,72 @@
+/* Generamos los estilos de nuestra página*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #141414;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.container {
+    background: #7fc0cc;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 550px;
+}
+.password-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #3da7a7;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+#password {
+    border: none;
+    background: none;
+    color: white;
+    font-size: 1.2em;
+    width: 100%;
+    outline: none;
+}
+#copy-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+.controls {
+    text-align: left;
+}
+label {
+    display: block;
+    margin: 5px 0;
+}
+.strength {
+    margin-top: 10px;
+}
+.strength-indicator {
+    width: 100%;
+    height: 10px;
+    background: yellow;
+    border-radius: 5px;
+}
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #3da7a7;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+button:hover {
+    background: #045050;
+}
